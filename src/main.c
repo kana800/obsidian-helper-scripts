@@ -66,14 +66,13 @@ int main(int argc, char* argv[]) {
 		// create a file and append information to the file
 		if ((current->tm_mday == date_token_arr[0]) && 
 				(current->tm_mon == date_token_arr[1] - 1)) {
-			FILE *daily_tracker = fopen(daily_file_name, "w");
+			FILE *daily_tracker = fopen(daily_file_name, "a");
 			fprintf(daily_tracker, "- [ ] %s", token_arr[1]);
 			fclose(daily_tracker);
 		}
 	}
 
 	fclose(reminder_csv_ptr);
-
 
 	return 0;
 }
