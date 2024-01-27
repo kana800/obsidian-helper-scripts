@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define BUFFERSIZE 500
-#define DAILYNOTEBUFFER 15
+#define DAILYNOTEBUFFER 18
 #define TOKENSIZE 2
 
 int main(int argc, char* argv[]) {
@@ -38,7 +38,9 @@ int main(int argc, char* argv[]) {
 
 	char daily_file_name[DAILYNOTEBUFFER];
 	int var = snprintf(daily_file_name, DAILYNOTEBUFFER,
-			"%d-%d-%d.md",(int)current->tm_mday,current->tm_mon+1,current->tm_year + 1900);
+			"FT-%d-%d-%d.md",(int)current->tm_mday,current->tm_mon+1,current->tm_year + 1900);
+
+	fprintf(stdout, "generated filename: %s\n", daily_file_name);
 
 	while (fgets(buffer, BUFFERSIZE, reminder_csv_ptr) != NULL ) {
 		token = strtok(buffer, delim);
@@ -64,8 +66,7 @@ int main(int argc, char* argv[]) {
 
 		// checking the dates with the current date and
 		// create a file and append information to the file
-		if ((current->tm_mday == date_token_arr[0]) && 
-				(current->tm_mon == date_token_arr[1] - 1)) {
+		if ((current->tm_mday == date_token_arr[0])) {
 			FILE *daily_tracker = fopen(daily_file_name, "a");
 			fprintf(daily_tracker, "- [ ] %s", token_arr[1]);
 			fclose(daily_tracker);
