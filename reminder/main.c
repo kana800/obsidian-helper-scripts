@@ -38,12 +38,11 @@ int main(int argc, char* argv[]) {
 
 	char daily_file_name[DAILYNOTEBUFFER];
 	int var = snprintf(daily_file_name, DAILYNOTEBUFFER,
-			"FT-%d-%d-%d.md",(int)current->tm_mday,current->tm_mon+1,current->tm_year + 1900);
-
-	fprintf(stdout, "generated filename: %s\n", daily_file_name);
+			"%02d-%02d-%d.md",(int)current->tm_mday,current->tm_mon+1,current->tm_year + 1900);
 
 	while (fgets(buffer, BUFFERSIZE, reminder_csv_ptr) != NULL ) {
 		token = strtok(buffer, delim);
+
 		while (token != NULL) {
 			token_arr[field_counter] = token;
 			token = strtok(NULL, delim);
