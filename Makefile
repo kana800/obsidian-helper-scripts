@@ -1,6 +1,11 @@
 CC=gcc
 
 BUILDDIR := build
+REMINDERDIR := reminder
+JOURNALDIR := journal
 
 rem:
-	$(CC) src/main.c -o $(BUILDDIR)/$@
+	$(CC) $(REMINDERDIR)/main.c -o $(BUILDDIR)/$@
+
+jrnl: 
+	$(CC) $(JOURNALDIR)/main.c -o $(BUILDDIR)/$@
