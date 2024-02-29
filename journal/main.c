@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define DAILYNOTEBUFFER 18
+#define DAILYNOTEBUFFER 32
 
 int main(int argc, char* argv[]) {
 
@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 
 	char daily_file_name[DAILYNOTEBUFFER];
 	int var = snprintf(daily_file_name, DAILYNOTEBUFFER,
-			"JE-%02d-%02d-%d.md", (int)current->tm_mday, 
+			"/home/kana/bin/JE-%02d-%02d-%d.md", (int)current->tm_mday,
 			current->tm_mon+1, current->tm_year + 1900);
 
 	// adding an entry option; 
