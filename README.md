@@ -6,7 +6,6 @@
 ### map-of-content
 
 - [journal](journal) : add journal entries
-- [reminder](reminder) : add reminders to notes
 
 ### references
 
