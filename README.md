@@ -7,6 +7,3 @@
 
 - [journal](journal) : add journal entries
 
-### references
-
-
